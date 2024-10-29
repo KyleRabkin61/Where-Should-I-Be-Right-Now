@@ -15,14 +15,20 @@ $(document).ready(function () {
 
     const daySelected = $('#dayInput');
 
+    const theDay = daySelected.val()
+
     btn.on('click', function () {
 
-        if (['A', 'B', 'C', 'D', 'E', 'F', 'G'].includes(daySelected.val().toUpperCase())) {
+        if (['A', 'B', 'C', 'D', 'E', 'F', 'G'].includes(theDay.toUpperCase())) {
             $.ajax ({
                 type: 'GET',
                 url: "https://api.npoint.io/faf2cdc57bb4b33922ec",
-                success: function (day) {
-                    getClassesForDay(day)
+                success: function (data) {
+                    console.log(getClassesForDay(data, theDay));
+
+                    if(theDay === 'A') {
+                        
+                    }
                 },
                 error: function () {
                     console.log('Connection error.')
@@ -31,12 +37,11 @@ $(document).ready(function () {
         }else {
             alert('Please choose correct letter day.')
         }
-        daySelected.val('')
+        
     })
 
-    function getClassesForDay(day) {
-        return day.schedule.filter(classInfo => classInfo.days.includes(day))
-
+    function getClassesForDay(data, day) {
+        return data.schedule.filter(classInfo => classInfo.days.includes(day));
     }
     
 })
