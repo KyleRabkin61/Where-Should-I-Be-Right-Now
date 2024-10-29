@@ -11,22 +11,32 @@ $(document).ready(function () {
 
     }
 
-    const btn = $('#submitDay')
+    const btn = $('#submitDay');
+
+    const daySelected = $('#dayInput');
 
     btn.on('click', function () {
-        $.ajax ({
-            type: 'GET',
-            url: "https://api.npoint.io/faf2cdc57bb4b33922ec",
-            success: function (data) {
-                renderHTML(data)
-            },
-            error: function () {
-                console.log('Connection error.')
-            }
-        })
+
+        if (['A', 'B', 'C', 'D', 'E', 'F', 'G'].includes(daySelected.val().toUpperCase())) {
+            $.ajax ({
+                type: 'GET',
+                url: "https://api.npoint.io/faf2cdc57bb4b33922ec",
+                success: function (day) {
+                    getClassesForDay(day)
+                },
+                error: function () {
+                    console.log('Connection error.')
+                }
+            })
+        }else {
+            alert('Please choose correct letter day.')
+        }
+        daySelected.val('')
     })
 
-    function renderHTML(data) {
-        console.log(data[0].class)
+    function getClassesForDay(day) {
+        return day.schedule.filter(classInfo => classInfo.days.includes(day))
+
     }
+    
 })
