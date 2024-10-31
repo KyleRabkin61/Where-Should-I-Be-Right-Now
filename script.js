@@ -2,13 +2,13 @@ $(document).ready(function () {
     const scheduleUrl = "https://api.npoint.io/faf2cdc57bb4b33922ec";
 
     const dailyPeriods = {
-        A: [1, 2, 3, "Lunch", 5, 6],
-        B: [4, 1, 2, "Lunch", 7, 5],
-        C: [3, 4, 1, "Lunch", 6, 6],
-        D: [2, 3, 4, "Lunch", 5, 6],
-        E: [1, 2, 3, "Lunch", 7, 5],
-        F: [4, 1, 2, "Lunch", 6, 7],
-        G: [3, 4, 7, "Lunch", 5, 6]
+        A: [1, 2, 3, 5, 6],
+        B: [4, 1, 2, 7, 5],
+        C: [3, 4, 1, 6, 6],
+        D: [2, 3, 4, 5, 6],
+        E: [1, 2, 3, 7, 5],
+        F: [4, 1, 2, 6, 7],
+        G: [3, 4, 7, 5, 6]
     };
 
     const btn = $('#submitDay');
@@ -24,7 +24,7 @@ $(document).ready(function () {
                     $('#scheduleList').empty(); // Clear the previous schedule
 
                     const classesForDay = getClassesForDay(data, daySelected);
-                    const daySchedule = dailyPeriods.daySelected;
+                    const daySchedule = dailyPeriods[daySelected];
                     let bellIndex = 0; // Start from 0
 
                     daySchedule.forEach(() => {
