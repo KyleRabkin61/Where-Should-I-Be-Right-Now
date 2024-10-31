@@ -12,7 +12,7 @@ $(document).ready(function () {
     };
 
     const btn = $('#submitDay');
-
+  
     btn.on('click', function () {
         const daySelected = $('#dayInput').val().toUpperCase();
 
@@ -24,22 +24,16 @@ $(document).ready(function () {
                     $('#scheduleList').empty(); // Clear the previous schedule
 
                     const classesForDay = getClassesForDay(data, daySelected);
-                    const daySchedule = dailyPeriods[daySelected];
+                    const daySchedule = dailyPeriods.daySelected;
                     let bellIndex = 0; // Start from 0
 
-                    daySchedule.forEach((period) => {
-                        if (period === "Lunch") {
-                            $('#scheduleList').append(`
-                                <tr>
-                                    <td>Lunch</td>
-                                </tr>
-                            `);
-                        } else {
+                    daySchedule.forEach(() => {
+                        if(true) {
                             const getClass = classesForDay[bellIndex];
                             if (getClass) {
                                 $('#scheduleList').append(`
                                     <tr>
-                                        <td>${period}</td>
+                                        <td>${getClass.period}</td>
                                         <td>${getClass.class}</td>
                                         <td>${getClass.teacher}</td>
                                         <td>${getClass.room}</td>
