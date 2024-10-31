@@ -14,7 +14,8 @@ $(document).ready(function () {
     const btn = $('#submitDay');
   
     btn.on('click', function () {
-        const daySelected = $('#dayInput').val().toUpperCase();
+
+            const daySelected = $('#dayInput').val().toUpperCase();
 
         if (['A', 'B', 'C', 'D', 'E', 'F', 'G'].includes(daySelected)) {
             $.ajax({
@@ -51,9 +52,11 @@ $(document).ready(function () {
         } else {
             alert('Please choose a correct letter day.');
         }
+        
     });
 
     function getClassesForDay(data, day) {
         return data.schedule.filter(classInfo => classInfo.days.includes(day));
     }
+
 });
