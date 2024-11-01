@@ -1,0 +1,38 @@
+body {
+    background: lightblue;
+}
+
+#submitDay {
+    width: 200px;
+    margin: 20px auto;
+    background: rgb(115, 211, 243);
+    border: 2px solid white;
+    color: white;
+    padding: 20px;
+    font-size: 23px;
+}
+
+#submitDay:hover {
+    background: rgb(44, 201, 253);
+}
+
+.table {
+    background: white;
+}
+
+h1,
+h3 {
+    color: white;
+    background: rgb(115, 211, 243);
+    padding: 20px;
+    width: 600px;
+    margin: 20px auto;
+    border: 2px solid white;
+}
+
+label {
+    color: white;
+    background: rgb(115, 211, 243);
+    width: 150px;
+    border: 2px solid white;
+}
